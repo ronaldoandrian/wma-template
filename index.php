@@ -1,1 +1,1 @@
-<?php header( 'Location: /pages/examples/login-v2.html' ) ;  ?>
+<?php header( 'Location: /pages/examples/login-wma.html' ) ;  ?>

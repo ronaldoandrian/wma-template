@@ -418,7 +418,7 @@
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body p-0">
-                        <ul class="products-list product-list-in-card pl-2 pr-2">
+                        <ul class="products-list product-list-in-card pl-2 pr-2" id="list-meetings">
                           <li class="item">
                             <div class="product-img">
                               <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
@@ -434,46 +434,6 @@
                               </span>
                               <span class="product-description">
                                 No. of attendees: 12
-                              </span>
-                              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                          </li>
-                          <!-- /.item -->
-                          <li class="item">
-                            <div class="product-img">
-                              <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                            </div>
-                            <div class="product-info">
-                              <a href="javascript:void(0)" class="product-title">Meetings 6
-                                <span class="badge badge-info float-right">Normal</span></a>
-                                <span class="product-description">
-                                  5 October 2020, 03:15 PM - 5 October 2020, 04:30 PM
-                                </span>
-                                <span class="product-description">
-                                  Type: Online meetings
-                                </span>
-                                <span class="product-description">
-                                  No. of attendees: 09
-                                </span>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                          </li>
-                          <!-- /.item -->
-                          <li class="item">
-                            <div class="product-img">
-                              <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-                            </div>
-                            <div class="product-info">
-                              <a href="javascript:void(0)" class="product-title">Meetings 7<span class="badge badge-danger float-right">High</span>
-                              </a>
-                              <span class="product-description">
-                                6 October 2020, 03:15 PM - 6 October 2020, 04:30 PM
-                              </span>
-                              <span class="product-description">
-                                Type: Online meetings
-                              </span>
-                              <span class="product-description">
-                                No. of attendees: 15
                               </span>
                               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
@@ -565,7 +525,6 @@
 
 <script>
   $(function() {
-    
     $('#reservationtime').daterangepicker({
         timePicker: true,
         timePickerIncrement: 30,
@@ -581,7 +540,39 @@
     var inputDescription = document.getElementById('inputDescription').value;
     var inputStatus = document.getElementById('inputStatus').value;
     var attendees_list = document.getElementById('attendees_list').innerText;
-    sessionStorage.setItem("meetings", tab);
+    sessionStorage.setItem("title", title);
+    sessionStorage.setItem("time", reservationtime);
+    sessionStorage.setItem("description", inputDescription);
+    sessionStorage.setItem("type", inputStatus);
+    sessionStorage.setItem("attendees", attendees_list);
+    addMeeting();
+  }
+
+  function addMeeting() {
+    if(sessionStorage.getItem("title")) {
+        var dom = '';
+        dom += '<li class="item">' +
+                  '<div class="product-img">' +
+                    '<img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">' +
+                  '</div>' +
+                  '<div class="product-info">' +
+                    '<a href="javascript:void(0)" class="product-title">' + sessionStorage.getItem("title") +
+                      '<span class="badge badge-info float-right">Normal</span></a>' +
+                      '<span class="product-description">' +
+                        '' + sessionStorage.getItem("time") +
+                      '</span>' +
+                      '<span class="product-description">' +
+                        'Type: ' + sessionStorage.getItem("type") +
+                      '</span>' +
+                      '<span class="product-description">' +
+                        'No. of attendees: 09' +
+                      '</span>' +
+                      '<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>' +
+                  '</div>' +
+                '</li>';
+        var listmeetings = document.getElementById('list-meetings');
+        listmeetings.innerHTML += dom;
+    }
   }
 
   function addAttendees() {
@@ -596,6 +587,10 @@
       }
     }
   }
+
+  $(document).ready(function() {
+    addMeeting();
+  });
 </script>
 
 </body>
