@@ -40,7 +40,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -154,7 +154,7 @@
                 <a href="board.html" class="nav-link active">
                   <i class="nav-icon fas fa-chalkboard-teacher"></i>
                   <p>
-                    Board meeting
+                    Meetings
                   </p>
                 </a>
               </li>
@@ -226,61 +226,401 @@
                 </h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
 
-                <div class="col-md-6">
-                    <div class="card card-secondary">
-                      <div class="card-header">
-                        <h3 class="card-title">Minutes of Meeting</h3>
-          
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                          </button>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <div class="form-group">
-                          <label for="inputEstimatedBudget">Add documents</label> </br>
-                          <input type="file" id="file_selected" multiple class="btn btn-sm btn-primary" />
-                        </div>
-                        <div class="form-group" id="selected_file">
-                            
-                        </div>
-                      </div>
-                      <!-- /.card-body -->
+
+
+
+
+
+
+
+
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Next meetings</h3>
+    
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                      </button>
                     </div>
-                    <!-- /.card -->
                   </div>
+                  <!-- /.card-header -->
+                  <div class="card-body p-0">
+                    <ul class="products-list product-list-in-card pl-2 pr-2">
+                      <li class="item">
+                        <div class="product-img">
+                          <img src="../dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title">Meetings 5
+                            <span class="badge badge-warning float-right">Low</span></a>
+                          <span class="product-description">
+                            4 October 2020, 03:15 PM - 4 October 2020, 04:30 PM
+                          </span>
+                          <span class="product-description">
+                            Type: Online meetings
+                          </span>
+                          <span class="product-description">
+                            No. of attendees: 12
+                          </span>
+               <!-- Input Update -->
+               <div class="card-tools">
+                <ul class="nav nav-pills ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#revenue-chart" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-plus"></i>Update</a>
+                  </li>
+                </ul>
 
-                  <div class="col-md-6">
-                    <div class="card card-secondary">
-                      <div class="card-header">
-                        <h3 class="card-title">Add attendees</h3>
-          
-                        <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                          </button>
-                        </div>
+                <!-- MODAL -->
+                <div class="modal fade" id="modal-lg">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Update</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
                       </div>
-                      <div class="card-body">
-                        <div class="form-group">
-                            
-                            <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
-                          </div>
-                            
-                        </div>
+                      <div class="modal-body">
+                        <div class="card-body">
+
+                            <div class="col-md-6">
+                                <div class="card card-secondary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Minutes of Meeting</h3>
+                      
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                      <label for="inputEstimatedBudget">Add documents</label> </br>
+                                      <input type="file" id="file_selected" multiple class="btn btn-sm btn-primary" />
+                                    </div>
+                                    <div class="form-group" id="selected_file">
+                                        
+                                    </div>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+            
+                              <div class="col-md-6">
+                                <div class="card card-secondary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Add attendees</h3>
+                      
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                        
+                                        <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
+                                      </div>
+                                        
+                                    </div>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+            
+                              
+            
+            
+                           
+
+
+
+
+
+
+                              
                       </div>
-                      <!-- /.card-body -->
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Update</button>
+                      </div>
                     </div>
-                    <!-- /.card -->
+                    <!-- /.modal-content -->
                   </div>
+                  <!-- /.modal-dialog -->
+                </div>
+                <!-- END MODAL -->
 
-                  
+                        </div>
+                      </li>
+                      <!-- /.item -->
+                      <li class="item">
+                        <div class="product-img">
+                          <img src="../dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title">Meetings 6
+                            <span class="badge badge-info float-right">Normal</span></a>
+                            <span class="product-description">
+                              5 October 2020, 03:15 PM - 5 October 2020, 04:30 PM
+                            </span>
+                            <span class="product-description">
+                              Type: Online meetings
+                            </span>
+                            <span class="product-description">
+                              No. of attendees: 09
+                            </span>
+               <!-- Input Update -->
+               <div class="card-tools">
+                <ul class="nav nav-pills ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#revenue-chart" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-plus"></i>Update</a>
+                  </li>
+                </ul>
+
+                <!-- MODAL -->
+                <div class="modal fade" id="modal-lg">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Update</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="card-body">
+
+                            <div class="col-md-6">
+                                <div class="card card-secondary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Minutes of Meeting</h3>
+                      
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                      <label for="inputEstimatedBudget">Add documents</label> </br>
+                                      <input type="file" id="file_selected" multiple class="btn btn-sm btn-primary" />
+                                    </div>
+                                    <div class="form-group" id="selected_file">
+                                        
+                                    </div>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+            
+                              <div class="col-md-6">
+                                <div class="card card-secondary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Add attendees</h3>
+                      
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                        
+                                        <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
+                                      </div>
+                                        
+                                    </div>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+            
+                              
+            
+            
+                           
 
 
 
+
+
+
+                              
+                      </div>
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Update</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+                </div>
+                <!-- END MODAL -->
+
+                        </div>
+                      </li>
+                      <!-- /.item -->
+                      <li class="item">
+                        <div class="product-img">
+                          <img src="../dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+                        </div>
+                        <div class="product-info">
+                          <a href="javascript:void(0)" class="product-title">Meetings 7<span class="badge badge-danger float-right">High</span>
+                          </a>
+                          <span class="product-description">
+                            6 October 2020, 03:15 PM - 6 October 2020, 04:30 PM
+                          </span>
+                          <span class="product-description">
+                            Type: Online meetings
+                          </span>
+                          <span class="product-description">
+                            No. of attendees: 15
+                          </span>
+               <!-- Input Update -->
+               <div class="card-tools">
+                <ul class="nav nav-pills ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#revenue-chart" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-plus"></i>Update</a>
+                  </li>
+                </ul>
+
+                <!-- MODAL -->
+                <div class="modal fade" id="modal-lg">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Update</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="card-body">
+
+                            <div class="col-md-6">
+                                <div class="card card-secondary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Minutes of Meeting</h3>
+                      
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                      <label for="inputEstimatedBudget">Add documents</label> </br>
+                                      <input type="file" id="file_selected" multiple class="btn btn-sm btn-primary" />
+                                    </div>
+                                    <div class="form-group" id="selected_file">
+                                        
+                                    </div>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+            
+                              <div class="col-md-6">
+                                <div class="card card-secondary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Add attendees</h3>
+                      
+                                    <div class="card-tools">
+                                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                        
+                                        <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
+                                      </div>
+                                        
+                                    </div>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+            
+                              
+            
+            
+                           
+
+
+
+
+
+
+                              
+                      </div>
+                      <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Update</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+                </div>
+                <!-- END MODAL -->
+
+                        </div>
+                      </li>
+                      <!-- /.item -->
+                    </ul>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer text-center">
+                    <a href="javascript:void(0)" class="uppercase">View all next meetings</a>
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+              
 
 
             </div>
