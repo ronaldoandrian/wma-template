@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../plugins/fullcalendar/main.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -262,10 +264,18 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <div class="card-body">
                     <div class="form-group">
                       <label for="inputName">Meeting Title</label>
                       <input type="text" id="inputName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputName">Meeting Time</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="far fa-clock"></i></span>
+                        </div>
+                        <input type="text" class="form-control float-right" id="reservationtime">
+                      </div>
                     </div>
                     <div class="form-group">
                       <label for="inputDescription">Meeting Description</label>
@@ -281,9 +291,9 @@
                     </div>
                     <div class="form-group">
                       <label for="inputClientCompany">Add attendees</label>
-                      <input type="text" id="inputClientCompany" class="form-control">
+                      <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
                     </div>
-                  </div>
+                  
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -295,6 +305,73 @@
             <!-- /.modal-dialog -->
           </div>
           <!-- END MODAL -->
+
+          
+          <!-- MODAL 2-->
+          <div class="modal fade" id="modal-agenda">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Add agenda</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="card col-md-12">
+                      <div class="card-header">
+                        <h3 class="card-title">1.</h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body row">
+                          <div class="col-md-8">
+                            <div class="form-group">
+                              <label for="inputName">Title</label>
+                              <input type="text" id="inputName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label for="inputDescription">Description (optional)</label>
+                              <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <a href="#" class="btn btn-sm btn-primary" style="float: right;"><i class="fa fa-paperclip"></i> Attach documents</a>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="inputClientCompany">Notes</label> </br>
+                            <a href="#" class="btn btn-sm btn-secondary"><i class="fa fa-sticky-note"></i> Add notes</a>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <a href="#" class="btn btn-sm btn-secondary"><i class="fa fa-plus"></i> Add more</a>
+                </div>
+              </div>
+
+              </div>
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- END MODAL 2-->
           <!-- /.col -->
           <div class="col-md-9">
             <div class="card card-primary">
@@ -342,12 +419,14 @@
 <!-- fullCalendar 2.2.5 -->
 <script src="../plugins/moment/moment.min.js"></script>
 <script src="../plugins/fullcalendar/main.js"></script>
+<script src="../plugins/clock-timepicker/jquery-clock-timepicker.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<!-- date-range-picker -->
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
-
     /* initialize the external events
      -----------------------------------------------------------------*/
     function ini_events(ele) {
@@ -486,6 +565,19 @@
       // Remove event from text input
       $('#new-event').val('')
     })
+  })
+  
+
+  $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    });
+
+  $('.external-event').click(function() {
+    $('#modal-agenda').modal('show');
   })
 </script>
 </body>

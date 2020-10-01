@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="./plugins/daterangepicker/daterangepicker.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -231,12 +233,66 @@
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart" data-toggle="tab"><i class="fa fa-plus"></i> Add</a>
+                      <a class="nav-link active" href="#revenue-chart" data-toggle="modal" data-target="#modal-lg"><i class="fa fa-plus"></i> Add</a>
                     </li>
                   </ul>
                 </div>
               </div>
               <!-- /.card-header -->
+
+<!-- MODAL -->
+<div class="modal fade" id="modal-lg">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New meeting</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="inputName">Meeting Title</label>
+            <input type="text" id="inputName" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="inputName">Meeting Time</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="far fa-clock"></i></span>
+              </div>
+              <input type="text" class="form-control float-right" id="reservationtime">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDescription">Meeting Description</label>
+            <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="inputStatus">Type</label>
+            <select id="inputStatus" class="form-control custom-select">
+              <option selected disabled>Select one</option>
+              <option>Online meeting</option>
+              <option>Onsite meeting</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputClientCompany">Add attendees</label>
+            <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
+          </div>
+        
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- END MODAL -->
+
               <div class="card-body">
                 
                 <div class="row">
@@ -486,5 +542,21 @@
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
+<!-- date-range-picker -->
+<script src="./plugins/daterangepicker/daterangepicker.js"></script>
+
+<script>
+  $(function() {
+    
+    $('#reservationtime').daterangepicker({
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+          format: 'MM/DD/YYYY hh:mm A'
+        }
+      });
+  })
+</script>
+
 </body>
 </html>
