@@ -227,7 +227,7 @@
                     <div class="external-event bg-danger">Meeting with high importance</div>
                     <div class="checkbox">
                       <label for="drop-remove">
-                        <input type="checkbox" id="drop-remove">
+                        <input type="checkbox" checked id="drop-remove">
                         Remove after drop
                       </label>
                     </div>
@@ -345,7 +345,7 @@
                           <div class="col-md-8">
                             <div class="form-group">
                               <label for="inputName">Title</label>
-                              <input type="text" id="inputName" class="form-control">
+                              <input type="text" id="agendaInputName" class="form-control">
                             </div>
                             <div class="form-group">
                               <label for="inputDescription">Description (optional)</label>
@@ -374,7 +374,7 @@
               </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary" onclick="saveChange()">Save changes</button>
                 </div>
               </div>
               <!-- /.modal-content -->
@@ -436,6 +436,7 @@
 <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Page specific script -->
 <script>
+  var info_temp = '';
   $(function () {
     /* initialize the external events
      -----------------------------------------------------------------*/
@@ -494,6 +495,12 @@
     });
 
     var calendar = new Calendar(calendarEl, {
+      
+      eventClick: function(info) {
+          document.getElementById('agendaInputName').value = info.el.innerText;
+          $('#modal-agenda').modal('show');
+          info_temp = info;
+      },
       headerToolbar: {
         left  : 'prev,next today',
         center: 'title',
@@ -593,6 +600,11 @@
   $('.fc-event-main-frame').click(function() {
     $('#modal-agenda').modal('show');
   });
+
+  function saveChange() {
+      info_temp.el.innerText = document.getElementById('agendaInputName').value;
+      $('#modal-agenda').modal('hide');
+  }
 </script>
 </body>
 </html>
