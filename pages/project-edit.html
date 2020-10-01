@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project list | WMA</title>
+  <title>Edit project | WMA</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -227,63 +227,77 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  <i class="fas fa-list mr-1"></i>
-                  Project list
+                  <i class="fas fa-edit mr-1"></i>
+                  Edit project
                 </h3>
-                <div class="card-tools">
-                    <ul class="nav nav-pills ml-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="project-add.html"><i class="fa fa-plus"></i> Add</a>
-                      </li>
-                    </ul>
-                  </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="post">
-                    <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="../dist/img/user2-160x160.jpg" alt="user image">
-                      <span class="username">
-                        <a href="project-details.html">SAIM Project</a>
-                      </span>
-                      <span class="description">Added by SAIM Admin - 7:45 PM today</span>
+                <section class="content">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="card card-primary">
+                          <div class="card-header">
+                            <h3 class="card-title">General</h3>
+              
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="form-group">
+                              <label for="inputName">Project Name</label>
+                              <input type="text" id="inputName" class="form-control" value="SAIM Project">
+                            </div>
+                            <div class="form-group">
+                              <label for="inputDescription">Minutes of meetings</label>
+                              <textarea id="inputDescription" class="form-control" rows="4">-P
+-P
+                                </textarea>
+                            </div>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card card-secondary">
+                          <div class="card-header">
+                            <h3 class="card-title">Documents</h3>
+              
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="form-group">
+                              <label for="inputEstimatedBudget">Add documents</label> </br>
+                              <input type="file" id="file_selected" multiple class="btn btn-sm btn-primary" />
+                            </div>
+                            <div class="form-group">
+                                <p>Functional-requirements.docx</p>
+                                <p>UAT.pdf</p>
+                                <p>Contract-10_12_2014.docx</p>
+                            </div>
+                            <div class="form-group" id="selected_file">
+                                
+                            </div>
+                          </div>
+                          <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                      </div>
                     </div>
-                    <!-- /.user-block -->
-                    <p>
-                        <p><a href="project-details.html"><i class="fas fa-eye" style="float: right;"></i></a></p>
-                      <a href="project-details.html" class="link-black text-sm"><i class="fas fa-paperclip mr-1"></i> 3 attached documents</a>
-                    </p>
-                </div>
-
-                <div class="post clearfix">
-                    <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="../dist/img/user2-160x160.jpg" alt="User Image">
-                      <span class="username">
-                        <a href="project-details.html">Test Project</a>
-                      </span>
-                      <span class="description">Added by SAIM Admin - 3 days ago</span>
+                    <div class="row">
+                      <div class="col-12">
+                        <input type="submit" value="Save changes" class="btn btn-success float-right">
+                      </div>
                     </div>
-                    <!-- /.user-block -->
-                    <p>
-                        <p><a href="project-details.html"><i class="fas fa-eye" style="float: right;"></i></a></p>
-                      <a href="project-details.html" class="link-black text-sm"><i class="fas fa-paperclip mr-1"></i> 3 attached documents</a>
-                    </p>
-                  </div>
-
-                  <div class="post">
-                    <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="../dist/img/user2-160x160.jpg" alt="user image">
-                      <span class="username">
-                        <a href="project-details.html">WMA Project</a>
-                      </span>
-                      <span class="description">Added by SAIM Admin - 5 days ago</span>
-                    </div>
-                    <!-- /.user-block -->
-                    <p>
-                        <p><a href="project-details.html"><i class="fas fa-eye" style="float: right;"></i></a></p>
-                      <a href="project-details.html" class="link-black text-sm"><i class="fas fa-paperclip mr-1"></i> 3 attached documents</a>
-                    </p>
-                  </div>
+                  </section>
               </div>
               <!-- /.card-body -->
             </div>
@@ -342,5 +356,21 @@
 <script src="../../plugins/codemirror/mode/css/css.js"></script>
 <script src="../../plugins/codemirror/mode/xml/xml.js"></script>
 <script src="../../plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script>
+    $('#file_selected').change(function() {
+        var fileInput = document.getElementById('file_selected');
+        var selected_file = document.getElementById('selected_file');
+        if(fileInput.files.length > 0) {
+            var htmaka = '';
+            for (var i = 0; i < fileInput.files.length; i++) {
+                htmaka += "<p>" + fileInput.files[i].name + "</p>";
+            }
+            selected_file.innerHTML = htmaka;
+        }
+        else {
+            selected_file.innerHTML = '';
+        }
+    });
+</script>
 </body>
 </html>
