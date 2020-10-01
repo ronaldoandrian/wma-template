@@ -478,6 +478,8 @@
     </div>
   </footer>
 
+  <input type="hidden" id="email_list" name="email_list" value="" />
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -546,6 +548,22 @@
     sessionStorage.setItem("type", inputStatus);
     sessionStorage.setItem("attendees", attendees_list);
     addMeeting();
+    $("#modal-lg").modal("hide");
+    sendEmail();
+  }
+
+  function sendEmail() {
+    var email_list = document.getElementById('email_list');
+    $.ajax({
+            type: "GET",
+            url: "http://137.116.245.33:81/weatherforecast",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: {adresses: email_list.value},
+            success: function (data) {
+                console.log(data);
+            }
+        });
   }
 
   function addMeeting() {
@@ -582,6 +600,11 @@
       if(attendees_list) {
         if(inputClientCompany.value != '') {
           attendees_list.innerHTML += "" + inputClientCompany.value + "</br>";
+          var email_list = document.getElementById('email_list');
+          if(email_list) {
+            email_list.value += "" + inputClientCompany.value + "#";
+            console.log(email_list.value);
+          }
           inputClientCompany.value = '';
         }
       }
