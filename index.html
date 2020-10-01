@@ -201,12 +201,12 @@
               <p>Projects</p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="pages/welcome.html" class="nav-link">
               <i class="far fa-handshake nav-icon"></i>
               <p>Welcome screen</p>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -293,15 +293,16 @@
                           <div class="input-group input-group-sm">
                               <input type="text" id="inputClientCompany" placeholder="mail@domain.mu" class="form-control">
                               <span class="input-group-append">
-                                <button type="button" class="btn btn-info btn-flat"> <i class="fas fa-plus"></i> Add</button>
+                                <button type="button" class="btn btn-info btn-flat" onclick="addAttendees()"> <i class="fas fa-plus"></i> Add</button>
                               </span>
                           </div>
                         </div>
+                        <div class="form-group" id="attendees_list"></div>
                       
                     </div>
                     <div class="modal-footer justify-content-between">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-primary" onclick="saveMeeting()">Save changes</button>
                     </div>
                   </div>
                   <!-- /.modal-content -->
@@ -572,7 +573,29 @@
           format: 'MM/DD/YYYY hh:mm A'
         }
       });
-  })
+  });
+
+  function saveMeeting() {
+    var title = document.getElementById('inputName').value;
+    var reservationtime = document.getElementById('reservationtime').value;
+    var inputDescription = document.getElementById('inputDescription').value;
+    var inputStatus = document.getElementById('inputStatus').value;
+    var attendees_list = document.getElementById('attendees_list').innerText;
+    sessionStorage.setItem("meetings", tab);
+  }
+
+  function addAttendees() {
+    var inputClientCompany = document.getElementById('inputClientCompany');
+    if(inputClientCompany) {
+      var attendees_list = document.getElementById('attendees_list');
+      if(attendees_list) {
+        if(inputClientCompany.value != '') {
+          attendees_list.innerHTML += "" + inputClientCompany.value + "</br>";
+          inputClientCompany.value = '';
+        }
+      }
+    }
+  }
 </script>
 
 </body>
