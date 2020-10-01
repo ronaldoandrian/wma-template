@@ -295,19 +295,26 @@
                       <label for="inputStatus">Type</label>
                       <select id="inputStatus" class="form-control custom-select">
                         <option selected disabled>Select one</option>
-                        <option>Online meeting</option>
-                        <option>Onsite meeting</option>
+                        <option>Board meeting</option>
+                        <option>Committee meeting</option>
+                        <option>Sub-committee meeting</option>
+                        <option>Other meeting</option>
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="inputClientCompany">Add attendees</label>
-                      <input type="text" placeholder="mail@domain.mu" id="inputClientCompany" class="form-control">
+                      <div class="input-group input-group-sm">
+                          <input type="text" id="inputClientCompany" placeholder="mail@domain.mu" class="form-control">
+                          <span class="input-group-append">
+                            <button type="button" class="btn btn-info btn-flat"> <i class="fas fa-plus"></i> Add</button>
+                          </span>
+                      </div>
                     </div>
                   
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary" id="save-meeting-change">Save changes</button>
                 </div>
               </div>
               <!-- /.modal-content -->
@@ -558,10 +565,10 @@
         'border-color'    : currColor
       })
     })
-    $('#add-new-event').click(function (e) {
+    $('#save-meeting-change').click(function (e) {
       e.preventDefault()
       // Get value and make sure it is not null
-      var val = $('#new-event').val()
+      var val = $('#inputName').val()
       if (val.length == 0) {
         return
       }
@@ -580,11 +587,11 @@
       ini_events(event)
 
       // Remove event from text input
-      $('#new-event').val('')
+      $('#inputName').val('');
+      $('#modal-lg').modal('hide');
     })
   })
   
-
   $('#reservationtime').daterangepicker({
       timePicker: true,
       timePickerIncrement: 30,
