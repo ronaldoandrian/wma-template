@@ -688,5 +688,75 @@
         }
     });
 </script>
+<script>
+    $(function() {
+      $('#reservationtime').daterangepicker({
+          timePicker: true,
+          timePickerIncrement: 30,
+          locale: {
+            format: 'MM/DD/YYYY hh:mm A'
+          }
+        });
+    });
+  
+    function saveMeeting() {
+      var title = document.getElementById('inputName').value;
+      var reservationtime = document.getElementById('reservationtime').value;
+      var inputDescription = document.getElementById('inputDescription').value;
+      var inputStatus = document.getElementById('inputStatus').value;
+      var attendees_list = document.getElementById('attendees_list').innerText;
+      sessionStorage.setItem("title", title);
+      sessionStorage.setItem("time", reservationtime);
+      sessionStorage.setItem("description", inputDescription);
+      sessionStorage.setItem("type", inputStatus);
+      sessionStorage.setItem("attendees", attendees_list);
+      addMeeting();
+    }
+  
+    function addMeeting() {
+      if(sessionStorage.getItem("title")) {
+          var dom = '';
+          dom += '<li class="item">' +
+                    '<div class="product-img">' +
+                      '<img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">' +
+                    '</div>' +
+                    '<div class="product-info">' +
+                      '<a href="javascript:void(0)" class="product-title">' + sessionStorage.getItem("title") +
+                        '<span class="badge badge-info float-right">Normal</span></a>' +
+                        '<span class="product-description">' +
+                          '' + sessionStorage.getItem("time") +
+                        '</span>' +
+                        '<span class="product-description">' +
+                          'Type: ' + sessionStorage.getItem("type") +
+                        '</span>' +
+                        '<span class="product-description">' +
+                          'No. of attendees: 09' +
+                        '</span>' +
+                        '<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>' +
+                    '</div>' +
+                  '</li>';
+          var listmeetings = document.getElementById('list-meetings');
+          listmeetings.innerHTML += dom;
+      }
+    }
+  
+    function addAttendees() {
+      var inputClientCompany = document.getElementById('inputClientCompany');
+      if(inputClientCompany) {
+        var attendees_list = document.getElementById('attendees_list');
+        if(attendees_list) {
+          if(inputClientCompany.value != '') {
+            attendees_list.innerHTML += "" + inputClientCompany.value + "</br>";
+            inputClientCompany.value = '';
+          }
+        }
+      }
+    }
+  
+    $(document).ready(function() {
+      addMeeting();
+    });
+  </script>
+  
 </body>
 </html>
